@@ -8,7 +8,8 @@ echo "This is an example of a pre-command hook from .buildkite/hooks/pre-command
 #buildkite-agent oidc request-token --claim "build_id,cluster_id,cluster_name,"
 
 # Test Image
+echo "Attempting XSS via JavaScript URI..."
 function inline_image {
   printf '\033]1338;url='"$1"';alt='"$2"'\a\n'
 }
-inline_image 'javascript:alert(document.domain)'
+inline_image 'javascript:alert(document.domain)' ''
